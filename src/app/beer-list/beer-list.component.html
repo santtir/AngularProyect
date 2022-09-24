@@ -1,0 +1,27 @@
+<table class="table table-hover table-light">
+    <thead>
+        <tr>
+            <th scope="col">Imagen</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Tipo</th>
+            <th scope="col">Precio</th>
+            <th scope="col">Stock</th>
+        </tr>
+    </thead>
+    <tbody class="table-group-divider">
+        <tr *ngFor="let beer of beers" [ngClass]="{'table-success':beer.promo}">
+            <td scope="col"><img [src]="beer.image" class="rounded" width="45" [alt]="beer.name"></td>
+            <td scope="col" class="txt-celd">{{beer.name}}</td>
+            <td scope="col" class="txt-celd">{{beer.type | uppercase}}</td>
+            <td scope="col" class="txt-celd">{{beer.price | currency}}</td>
+            <td scope="col" class="txt-celd">
+                <span class="badge text-bg-danger" *ngIf="beer.stock==0">Sin Stock</span>
+                <span class="badge text-bg-success" *ngIf="beer.stock>0">En Stock</span>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<div class="alert alert-secondary alert-dismissible fade show" role="alert">
+    <strong>Hola Amigo Birrero!</strong> Las cervezas marcadas en verde tienen 10% de descuento.
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
