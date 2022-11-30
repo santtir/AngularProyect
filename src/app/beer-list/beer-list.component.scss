@@ -5,3 +5,26 @@ text-align: center;
 .txt-celd{
     padding-top: 1.5rem;
 }
+
+.inputCant{
+    text-align: center;
+    margin-left: 1rem;
+    margin-right: 1rem;
+
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0;
+}
+
+input[type=number] { -moz-appearance:textfield; }
+input[type=number]{
+    width: 3.5rem;
+}
+
+.table-beers{
+    margin-top: 8vh;
+    
+}
