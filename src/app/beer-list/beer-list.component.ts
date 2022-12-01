@@ -14,7 +14,7 @@ export class BeerListComponent implements OnInit {
       type: "Golden",
       price: 500,
       stock: 5,
-      image: "assets/img/golden.jpg",
+      image: "https://raw.githubusercontent.com/santtir/ipaCerveceria/main/src/assets/img/golden.jpg",
       promo:false,
       quantity: 0,
     },
