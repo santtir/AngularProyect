@@ -14,7 +14,7 @@ export class BeerListComponent implements OnInit {
       type: "Golden",
       price: 500,
       stock: 5,
-      image: "https://raw.githubusercontent.com/santtir/ipaCerveceria/main/src/assets/img/golden.jpg",
+      image: "https://raw.githubusercontent.com/santtir/IpaCerveceria/main/src/assets/img/golden.jpg",
       promo:false,
       quantity: 0,
     },
@@ -23,7 +23,7 @@ export class BeerListComponent implements OnInit {
       type: "IPA",
       price: 700,
       stock: 8,
-      image: "assets/img/ipa.png",
+      image: "https://raw.githubusercontent.com/santtir/IpaCerveceria/main/src/assets/img/ipa.png",
       promo:true,
       quantity: 0,
 
@@ -34,7 +34,7 @@ export class BeerListComponent implements OnInit {
       type: "APA",
       price: 600,
       stock: 0,
-      image: "assets/img/APA.jpg",
+      image: "https://raw.githubusercontent.com/santtir/IpaCerveceria/main/src/assets/img/APA.jpg",
       promo:true,
       quantity: 0,
 
@@ -44,7 +44,7 @@ export class BeerListComponent implements OnInit {
       type: "Scotish",
       price: 500,
       stock: 3,
-      image: "assets/img/roja.png",
+      image: "https://raw.githubusercontent.com/santtir/IpaCerveceria/main/src/assets/img/roja.png",
       promo:true,
       quantity: 0,
 
@@ -54,7 +54,7 @@ export class BeerListComponent implements OnInit {
     type:"Porter",
     price:650,
     stock:10,
-    image:"assets/img/porter.jpg",
+    image:"https://raw.githubusercontent.com/santtir/IpaCerveceria/main/src/assets/img/porter.jpg",
     promo:false,
     quantity: 0,
 
