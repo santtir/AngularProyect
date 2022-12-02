@@ -8,6 +8,8 @@ import { Beer } from './beer';
   styleUrls: ['./beer-list.component.scss']
 })
 export class BeerListComponent implements OnInit {
+
+
   beers: Beer[] = [
     {
       name: "La Rubia",
@@ -66,29 +68,8 @@ export class BeerListComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  upQuantity(beer : Beer):void{
-    if(beer.quantity<beer.stock){
-      beer.quantity++;
+  maxReached($event: String) {
+    console.log($event);
     }
-
-  }
-  downQuantity(beer : Beer):void{
-    if(beer.quantity>0){
-      beer.quantity--;
-    }
-
-}
-
-changeQuantity(event:any,beer:Beer):void{
-  let cant=(event.target.value);
-  let inputCant=event.target;
-  if(cant>beer.stock){
-    cant=0;
-    inputCant.value=0;
-    console.log('error la cantidad pretendida supera el stock');
-  }
-  console.log(cant);
-  
-}
 
 }

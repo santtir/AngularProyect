@@ -2,7 +2,7 @@
     <table class="table table-hover table-light shadow-lg">
         <thead>
             <tr>
-                <th scope="col">Imagen</th>
+                <th scope="col"></th>
                 <th scope="col">Nombre</th>
                 <th scope="col">Tipo</th>
                 <th scope="col">Precio</th>
@@ -21,18 +21,7 @@
                     <span class="badge text-bg-success" *ngIf="beer.stock>0">En Stock</span>
                 </td>
                 <td scope="col" class="txt-celd">
-                    <button class="btn btn-outline-dark btn-sm" (click)="downQuantity(beer)"
-                        *ngIf="beer.stock>0">-</button>
-                    <input class="inputCant" type="number" [(ngModel)]="beer.quantity" *ngIf="beer.stock>0"
-                        (keyup)="changeQuantity($event, beer)">
-                    <button class="btn btn-outline-dark btn-sm" (click)="upQuantity(beer)"
-                        *ngIf="beer.stock>0">+</button>
-                    <button class="btn btn-outline-dark btn-sm disabled" (click)="downQuantity(beer)"
-                        *ngIf="beer.stock==0">-</button>
-                    <input class="inputCant" type="number" disabled="" [(ngModel)]="beer.quantity"
-                        *ngIf="beer.stock==0">
-                    <button class="btn btn-outline-dark btn-sm disabled" (click)="downQuantity(beer)"
-                        *ngIf="beer.stock==0">+</button>
+                    <app-input-int [quantity]="beer.quantity" [max]="beer.stock" (maxReached)="maxReached($event)" *ngIf="beer.stock>0"></app-input-int>
                 </td>
             </tr>
         </tbody>

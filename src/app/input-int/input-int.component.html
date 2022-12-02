@@ -1,0 +1,5 @@
+<div class="btn-int">
+    <button class="btn btn-outline-dark btn-sm" (click)="downQuantity()">-</button>
+    <input class="inputCant" type="number" [(ngModel)]="quantity" (keyup)="stockMax($event)">
+    <button class="btn btn-outline-dark btn-sm" (click)="upQuantity()">+</button>
+</div>
