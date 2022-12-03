@@ -1,5 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { EMPTY, empty } from 'rxjs';
+import { BeerCartServiceService } from '../beer-cart-service.service';
+import { BeerDataService } from '../beer-data.service';
 import { Beer } from './beer';
 
 @Component({
@@ -10,66 +12,29 @@ import { Beer } from './beer';
 export class BeerListComponent implements OnInit {
 
 
-  beers: Beer[] = [
-    {
-      name: "La Rubia",
-      type: "Golden",
-      price: 500,
-      stock: 5,
-      image: "https://raw.githubusercontent.com/santtir/IpaCerveceria/main/src/assets/img/golden.jpg",
-      promo:false,
-      quantity: 0,
-    },
-    {
-      name: "Myke Tyson",
-      type: "IPA",
-      price: 700,
-      stock: 8,
-      image: "https://raw.githubusercontent.com/santtir/IpaCerveceria/main/src/assets/img/ipa.png",
-      promo:true,
-      quantity: 0,
+  beers: Beer[] = [];
 
 
-    },
-    {
-      name: "Verano en la Playa",
-      type: "APA",
-      price: 600,
-      stock: 0,
-      image: "https://raw.githubusercontent.com/santtir/IpaCerveceria/main/src/assets/img/APA.jpg",
-      promo:true,
-      quantity: 0,
-
-    },
-    {
-      name: "Libermann",
-      type: "Scotish",
-      price: 500,
-      stock: 3,
-      image: "https://raw.githubusercontent.com/santtir/IpaCerveceria/main/src/assets/img/roja.png",
-      promo:true,
-      quantity: 0,
-
-    },
-    {
-    name:"Morocha Fria",
-    type:"Porter",
-    price:650,
-    stock:10,
-    image:"https://raw.githubusercontent.com/santtir/IpaCerveceria/main/src/assets/img/porter.jpg",
-    promo:false,
-    quantity: 0,
-
-
-    }
-  ]
-  constructor() { }
+  constructor(private cart: BeerCartServiceService, private beersDataService: BeerDataService) {
+   }
 
   ngOnInit(): void {
+    this.beersDataService.getAll()
+    .subscribe(beers=>this.beers= beers);
   }
 
   maxReached($event: String) {
     console.log($event);
     }
 
+    addToCart(beer: Beer):void{
+      if(beer.quantity>0){
+        this.cart.addToCart (beer);
+        beer.stock-=beer.quantity;
+        beer.quantity=0;
+      }else{
+        alert('error la cantidad no puede ser 0');
+        
+      }
+    }
 }

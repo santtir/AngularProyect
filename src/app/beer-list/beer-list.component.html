@@ -8,6 +8,7 @@
                 <th scope="col">Precio</th>
                 <th scope="col">Stock</th>
                 <th scope="col">Cantidad</th>
+                <th scope="col"></th>
             </tr>
         </thead>
         <tbody class="table-group-divider">
@@ -17,11 +18,14 @@
                 <td scope="col" class="txt-celd">{{beer.type | uppercase}}</td>
                 <td scope="col" class="txt-celd">{{beer.price | currency}}</td>
                 <td scope="col" class="txt-celd">
-                    <span class="badge text-bg-danger" *ngIf="beer.stock==0">Sin Stock</span>
-                    <span class="badge text-bg-success" *ngIf="beer.stock>0">En Stock</span>
+                    <span class="badge text-bg-danger" *ngIf="beer.stock==0"><i class="bi bi-x-circle"></i></span>
+                    <span class="badge text-bg-success" *ngIf="beer.stock>0"><i class="bi bi-check-lg"></i></span>
                 </td>
-                <td scope="col" class="txt-celd">
-                    <app-input-int [quantity]="beer.quantity" [max]="beer.stock" (maxReached)="maxReached($event)" *ngIf="beer.stock>0"></app-input-int>
+                <td scope="col" class="txt-celd"  *ngIf="beer.stock>0">    
+                    <app-input-int [(quantity)]="beer.quantity" [max]="beer.stock" (maxReached)="maxReached($event)"></app-input-int>
+                </td>
+                <td scope="col">
+                    <button class="btn btn-dark btn-sm buttonBuy" (click)="addToCart(beer)" *ngIf="beer.stock>0"><i class="bi bi-bag"></i>  Añadir al carrito</button>
                 </td>
             </tr>
         </tbody>

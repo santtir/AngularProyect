@@ -9,6 +9,7 @@ import { BreweryAboutComponent } from './brewery-about/brewery-about.component';
 import { BreweryBeersComponent } from './brewery-beers/brewery-beers.component';
 import { CartComponent } from './cart/cart.component';
 import { InputIntComponent } from './input-int/input-int.component';
+import { HttpClientModule } from '@angular/common/http'
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { InputIntComponent } from './input-int/input-int.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
